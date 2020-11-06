@@ -6,3 +6,6 @@ can be pasted and integrated into any python script
 
 ## pushover.py
 can be used for sending messages on-the-fly
+
+## pushoverIpGrabber.py
+Proof of Concept IP grabber using the pushoverModule to send the details
