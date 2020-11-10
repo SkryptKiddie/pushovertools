@@ -1,23 +1,9 @@
-import requests, sys
+import pushover, sys
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-class pushovermodule: # basic pushover integration for any python3 script
-    def __init__(self):
-        self.api_key = "" # pushover application key
-        self.user_key = "" # recipient user key
-
-    def sendMessage(self, title, message, priority):
-        body = {
-        "token": self.api_key,
-        "user": self.user_key,
-        "title": str(title), # message title
-        "message": str(message), # message body
-        "priority": str(priority)} # message priority, valid options are -2 -1 1 2
-        response = requests.post("https://api.pushover.net/1/messages.json", body, verify=False)
-        if (str(response)[10:-1]) == "[200]":
-            return True # success
-        else:
-            return False # error
+# define the api key and user key
+pushover.config.api_key = "a7tnspu4rgvy9f1297nhpqy3y8ebj5"
+pushover.config.user_key = "uuu4fzz9rp65uvivsz9x1bczyez27x"
 
 class ReqHandler(BaseHTTPRequestHandler): 
     def do_GET(self):
@@ -25,7 +11,6 @@ class ReqHandler(BaseHTTPRequestHandler):
         pushover.sendMessage(title="New connection", message=(str(self.headers)), priority="-1")
         self.end_headers()
 
-pushover = pushovermodule()
 httpServer = HTTPServer(("0.0.0.0", 80), ReqHandler)
     
 try:
