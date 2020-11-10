@@ -1,4 +1,3 @@
-from typing import NamedTuple
 import requests, urllib3
 from datetime import datetime
 
