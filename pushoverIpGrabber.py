@@ -2,8 +2,8 @@ import pushover, sys
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
 # define the api key and user key
-pushover.config.api_key = "a7tnspu4rgvy9f1297nhpqy3y8ebj5"
-pushover.config.user_key = "uuu4fzz9rp65uvivsz9x1bczyez27x"
+pushover.config.api_key = ""
+pushover.config.user_key = ""
 
 class ReqHandler(BaseHTTPRequestHandler): 
     def do_GET(self):
